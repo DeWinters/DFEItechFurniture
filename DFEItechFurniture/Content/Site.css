@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.lotSlide{
+    margin: 2px;
+    padding: 5px;
+    border: solid black 2px;
+    max-width: 400px;
+    float: left;
+}

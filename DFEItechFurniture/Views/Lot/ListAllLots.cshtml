@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DFEItechFurniture.Models.Lot>
+@{
+    ViewBag.Title = "ListAllLots";
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+}
+
+<h2>List All Lots</h2>
+<div class="row">
+    @foreach (var lot in Model)
+    {
+        string imageString = "/Resources/"+lot.LotImage;
+        <div class="lotSlide">
+            <p>Lot Name:    @lot.LotName</p>
+            <p>Lot ID:      @lot.LotId</p>
+            <img src=@imageString alt="Missing Pic"/>
+            <p>Lot Type:    coming soon</p>
+            <p>Description: @lot.LotDescript</p>
+            <p>Outdoor:     @lot.Exterior</p>
+        </div>
+    }
+</div>
+<div>
+    @Html.Partial("_ToolsLot")
+</div>
+
