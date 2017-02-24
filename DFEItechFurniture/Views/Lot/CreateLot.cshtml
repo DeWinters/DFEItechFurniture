@@ -1,0 +1,18 @@
+﻿@model DFEItechFurniture.Models.Lot
+@{
+    ViewBag.Title = "CreateLot";
+    string imageString = "/Resources/" + Model.LotImage;
+}
+
+<h2>CreateLot</h2>
+
+<div class="lotSlide">
+    <p>Lot Name:    @Model.LotName</p>
+    <p>Lot ID:      @Model.LotId</p>
+    <img src=@imageString alt="Missing Pic" />
+    <p>Lot Type:    @Model.LotType</p>
+    <p>Description: @Model.LotDescript</p>
+    <p>Outdoor:     @Model.Exterior</p>
+    <p>Price:       @Model.Price</p>
+</div>
+

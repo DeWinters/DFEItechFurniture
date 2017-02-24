@@ -1,7 +1,8 @@
 ﻿
 @model DFEItechFurniture.Models.Lot
 
-<p>Toolbox</p>
+<h3>Toolbox</h3>
+<p>Narrow Search</p>
 @using (Html.BeginForm("ListLots", "Lot"))
 {
     @Html.LabelFor(model => model.LotId, "Lot#", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -18,6 +19,26 @@
 
     @Html.LabelFor(model => model.Exterior, "Weatherproof", htmlAttributes: new { @class = "control-label col-md-2" })
     @Html.CheckBoxFor(model => model.Exterior)<br />
+
+    <input type="submit" class="btn btn-default" value="Create Lot &raquo;" />
+}
+
+@using (Html.BeginForm("CreateLot", "Lot"))
+{
+    @Html.LabelFor(model => model.LotName, "Lot Name", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.TextBoxFor(model => model.LotName)<br />
+
+    @Html.LabelFor(model => model.LotType, "Lot Type", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.TextBoxFor(model => model.LotType)<br />
+
+    @Html.LabelFor(model => model.LotImage, "Picture title", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.TextBoxFor(model => model.LotImage)<br />
+
+    @Html.LabelFor(model => model.Exterior, "Weatherproof", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.CheckBoxFor(model => model.Exterior)<br />
+
+    @Html.LabelFor(model => model.Price, "Price", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.TextBoxFor(model => model.Price)<br />
 
     <input type="submit" class="btn btn-default" value="Create Lot &raquo;" />
 }

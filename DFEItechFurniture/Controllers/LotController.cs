@@ -9,6 +9,8 @@ namespace DFEItechFurniture.Controllers
 {
     public class LotController : Controller
     {
+        MySqlButler butler = new MySqlButler();
+
         [HttpGet]
         public ActionResult ListLots()
         {
@@ -25,9 +27,9 @@ namespace DFEItechFurniture.Controllers
         public ActionResult ListLots(int lotId=0, string lotName=null, int lotType=0, string lotImage=null, string LotDescript=null, Boolean exterior=false, Decimal price=0)
         {
             List<Lot> allLots = new List<Lot>();
-            if (lotId != 0) {                                   // GetLotListById (should get single match)
-           // } else if (exterior != false && lotName != null) {  // GetLotByName&Value 
-          //  } else if (lotName != null && lotType != 0) {       // GetLotByName&Exterior
+            if (lotId != 0) {                                   // GetLotsById (should get single match)
+           // } else if (exterior != false && lotName != null) {  // GetLotsByNameAndType 
+          //  } else if (lotName != null && lotType != 0) {       // GetLotsByName&Exterior
            // } else if (lotType != 0) {                          // GetLotByType                  
           //  }else if (lotType != 0)
           //  {                                             // GetAllLots
@@ -53,9 +55,9 @@ namespace DFEItechFurniture.Controllers
             return View(allLots);
         }
 
-        public ActionResult CreateLot(int lotId, string lotName, string lotImage, string LotDescript, Boolean exterior, Decimal price)
+        public ActionResult CreateLot(string lotName, int lotType, string lotImage, string lotDescript, Boolean exterior, Decimal price)
         {
-            return View();
+            return View(butler.InsertLot(lotName, lotType, lotImage, lotDescript, exterior, price));
         }
     }
 }
