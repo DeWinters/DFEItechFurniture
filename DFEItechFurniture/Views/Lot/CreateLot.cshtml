@@ -1,18 +1,32 @@
-﻿@model DFEItechFurniture.Models.Lot
+﻿@model IEnumerable<DFEItechFurniture.Models.Category>
 @{
     ViewBag.Title = "CreateLot";
-    string imageString = "/Resources/" + Model.LotImage;
 }
 
 <h2>CreateLot</h2>
+<form action="NewLot">
+    <label for="lotName">Name</label>
+    <input name="lotName" type="text" /><br />
+    
+    <label for="lotType">Category</label>
+    <select name="lotType">
+                @foreach (var type in Model)
+                {
+                    <option value=@type.CategoryId>@type.CategoryName</option>                          }
+                }
+    </select><br />
 
-<div class="lotSlide">
-    <p>Lot Name:    @Model.LotName</p>
-    <p>Lot ID:      @Model.LotId</p>
-    <img src=@imageString alt="Missing Pic" />
-    <p>Lot Type:    @Model.LotType</p>
-    <p>Description: @Model.LotDescript</p>
-    <p>Outdoor:     @Model.Exterior</p>
-    <p>Price:       @Model.Price</p>
-</div>
+    <label for="lotImage">Image</label>
+    <input name="lotImage" type="text" /><br />
+
+    <label for="exterior">Weatherproof</label>
+    <input name="exterior" type="checkbox" value="true"/><br />
+
+    <label for="lotDescript">Description</label>
+    <textarea name="lotDescript">Description Here...</textarea><br />
+    <br />
+    <input type="submit" class="btn btn-default" value="Create Lot &raquo;" />
+</form>
+
+    
 

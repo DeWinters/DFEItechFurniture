@@ -53,7 +53,7 @@ namespace DFEItechFurniture.Models
             {
                 try
                 {
-                    cmd.CommandText = "DELETE FROM lot WHERE worksop_id= @ID";
+                    cmd.CommandText = "DELETE FROM lot WHERE lot_id= @ID";
                     cmd.Parameters.AddWithValue("@ID", id);
                     cmd.ExecuteNonQuery();
                 }
@@ -80,7 +80,7 @@ namespace DFEItechFurniture.Models
                 {
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
                     lot.LotImage = rdr.GetString(3);
                     lot.LotDescript = rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
@@ -105,10 +105,10 @@ namespace DFEItechFurniture.Models
                 {
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
-                    lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    lot.LotName = rdr.IsDBNull(1)       ? string.Empty : rdr.GetString(1);
+                    if(rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3)      ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4)   ? string.Empty : rdr.GetString(4);  
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -136,10 +136,10 @@ namespace DFEItechFurniture.Models
                 {
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
-                    lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    lot.LotName = rdr.IsDBNull(1) ? string.Empty : rdr.GetString(1);
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -167,9 +167,9 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -197,9 +197,9 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -227,9 +227,9 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -257,12 +257,12 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    if(rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
-                    lots.Add(lot);                   
+                    lots.Add(lot);
                 }
             }
             catch (MySqlException e)
@@ -288,9 +288,9 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -319,9 +319,9 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -350,9 +350,9 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); 
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -381,9 +381,9 @@ namespace DFEItechFurniture.Models
                     Lot lot = new Lot();
                     lot.LotId = rdr.GetInt32(0);
                     lot.LotName = rdr.GetString(1);
-                    lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2));
-                    lot.LotImage = rdr.GetString(3);
-                    lot.LotDescript = rdr.GetString(4);
+                    if (rdr.GetInt32(2) != 0) { lot.LotType = categorySql.FindCategoryById(rdr.GetInt32(2)); }
+                    lot.LotImage = rdr.IsDBNull(3) ? string.Empty : rdr.GetString(3);
+                    lot.LotDescript = rdr.IsDBNull(4) ? string.Empty : rdr.GetString(4);
                     lot.Exterior = rdr.GetBoolean(5);
                     lot.Price = rdr.GetDecimal(6);
                     lots.Add(lot);
@@ -398,10 +398,12 @@ namespace DFEItechFurniture.Models
             return lots;
         }
 
-        /*********************************************************************************** TYPE queries **/
 
 
-
+        public List<Category> GetAllCategories()
+        {
+            return (categorySql.GetAllCategories());
+        }
     }
 }
 

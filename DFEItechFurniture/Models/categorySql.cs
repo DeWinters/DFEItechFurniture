@@ -24,7 +24,10 @@ namespace DFEItechFurniture.Models
             Category category = new Category();
             try
             {
-                cmd.CommandText = "SELECT * FROM type";
+                con.Close();
+                con.Open();
+                cmd.CommandText = "SELECT * FROM type WHERE type_id =" + id;
+                //cmd.Parameters.AddWithValue("@ID", id);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -39,7 +42,28 @@ namespace DFEItechFurniture.Models
             return category;
         }
 
-        public List<Category> GetAllTypes()
+        public Category FindCategoryByName(string name)
+        {
+            Category category = new Category();
+            try
+            {
+                cmd.CommandText = "SELECT * FROM type WHERE type_name =@NAME";
+                cmd.Parameters.AddWithValue("@NAME", name);
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    category.CategoryId = rdr.GetInt32(0);
+                    category.CategoryName = rdr.GetString(1);
+                }
+            }
+            catch (MySqlException e)
+            {
+                category.CategoryName = e.ToString();
+            }
+            return category;
+        }
+
+        public List<Category> GetAllCategories()
         {
             List<Category> allCategories = new List<Category>();
             try

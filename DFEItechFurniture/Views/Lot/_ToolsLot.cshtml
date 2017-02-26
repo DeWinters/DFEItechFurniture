@@ -5,40 +5,18 @@
 <p>Narrow Search</p>
 @using (Html.BeginForm("ListLots", "Lot"))
 {
-    @Html.LabelFor(model => model.LotId, "Lot#", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.LotId)<br />
+    @Html.LabelFor(model => model.LotId, "Lot#")
+    @Html.TextBoxFor(model => model.LotId, new {style = "width: 60px;" })
 
-    @Html.LabelFor(model => model.LotName, "Lot Name", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.LotName)<br />
+    @Html.LabelFor(model => model.LotName, "Lot Name")
+    @Html.TextBoxFor(model => model.LotName, new { style = "width: 150px;" })
 
-    @Html.LabelFor(model => model.LotType, "Lot Type", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.LotType)<br />
+    @Html.LabelFor(model => model.LotType, "Lot Type")
+    @Html.TextBoxFor(model => model.LotType, new { style = "width: 150px;" })
 
-    @Html.LabelFor(model => model.LotImage, "Picture title", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.LotImage)<br />
+    @Html.LabelFor(model => model.Exterior, "Weatherproof")
+    @Html.CheckBoxFor(model => model.Exterior)
 
-    @Html.LabelFor(model => model.Exterior, "Weatherproof", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.CheckBoxFor(model => model.Exterior)<br />
-
-    <input type="submit" class="btn btn-default" value="Create Lot &raquo;" />
+    <input type="submit" class="btn btn-default" value="Search &raquo;" />
 }
 
-@using (Html.BeginForm("CreateLot", "Lot"))
-{
-    @Html.LabelFor(model => model.LotName, "Lot Name", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.LotName)<br />
-
-    @Html.LabelFor(model => model.LotType, "Lot Type", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.LotType)<br />
-
-    @Html.LabelFor(model => model.LotImage, "Picture title", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.LotImage)<br />
-
-    @Html.LabelFor(model => model.Exterior, "Weatherproof", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.CheckBoxFor(model => model.Exterior)<br />
-
-    @Html.LabelFor(model => model.Price, "Price", htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.Price)<br />
-
-    <input type="submit" class="btn btn-default" value="Create Lot &raquo;" />
-}

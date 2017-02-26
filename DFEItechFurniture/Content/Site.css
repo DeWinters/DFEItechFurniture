@@ -24,9 +24,26 @@ textarea {
 }
 
 .lotSlide{
-    margin: 2px;
-    padding: 5px;
-    border: solid black 2px;
-    max-width: 400px;
+    box-shadow: 10px 10px 10px;
+    margin: 10px;
+    border: solid gray 1px;
+    width: 300px;
     float: left;
 }
+
+.detail{
+    margin: 5px;
+}
+
+
+.framed{
+    width: 298px;
+}
+
+.shop{
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+
+

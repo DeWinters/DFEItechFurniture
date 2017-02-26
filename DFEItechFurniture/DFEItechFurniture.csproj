@@ -244,6 +244,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Lot\ListLots.cshtml" />
     <Content Include="Views\Lot\_ToolsLot.cshtml" />
+    <Content Include="Views\Lot\NewLot.cshtml" />
     <Content Include="Views\Lot\CreateLot.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -1,27 +1,30 @@
 ﻿@model IEnumerable<DFEItechFurniture.Models.Lot>
 @{
     ViewBag.Title = "ListLots";
-    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css/?ts=<?=time()?>"&quot; />
     
 }
 
+<div>
+    @Html.Partial("_ToolsLot", new DFEItechFurniture.Models.Lot())
+</div>
+
 <h2>List All Lots</h2>
-<div class="row">
-    
+<div class="shop">    
     @foreach (var lot in Model)
     {
         string imageString = "/Resources/"+lot.LotImage;
         <div class="lotSlide">
-            <p>Lot Name:    @lot.LotName</p>
-            <p>Lot ID:      @lot.LotId</p>
-            <img src=       @imageString alt="Missing Pic"/>
-            <p>Lot Type:    @lot.LotType</p>
-            <p>Description: @lot.LotDescript</p>
-            <p>Outdoor:     @lot.Exterior</p>
+            <p class="detail">Lot Name:    @lot.LotName</p>
+            <p class="detail">Lot ID:      @lot.LotId</p>
+            <img src=@imageString alt="Missing Pic" class="framed"/>
+            <p class="detail">Lot Type:    @lot.LotType.CategoryName</p>
+            <p class="detail">Description: @lot.LotDescript</p>
+            <p class="detail">Outdoor:     @lot.Exterior</p>
+            <p class="detail">Price:       @lot.Price</p>
         </div>
     }
 </div>
-<div>
-    @Html.Partial("_ToolsLot", new DFEItechFurniture.Models.Lot()))
-</div>
+
+
 
