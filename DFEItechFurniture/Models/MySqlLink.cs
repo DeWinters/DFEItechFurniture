@@ -9,7 +9,7 @@ namespace DFEItechFurniture.Models
     public abstract class MySqlLink
     {
         protected MySqlCommand cmd = new MySqlCommand();
-        protected MySqlConnection con = new MySqlConnection(@"Server=localhost;Port=3306;database=furniture;Uid=root;password=secret");
+        protected MySqlConnection con = new MySqlConnection(@"server=testmysqlinst.corprrs97lob.eu-west-1.rds.amazonaws.com;port=3306;User ID=root;password=gyrfalcon5151;Database=funituredb");
         protected MySqlDataReader rdr;
     }
 }

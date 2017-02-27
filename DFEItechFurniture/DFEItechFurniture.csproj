@@ -194,6 +194,32 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\image1.jpg" />
+    <Content Include="Resources\image10.jpg" />
+    <Content Include="Resources\image11.jpg" />
+    <Content Include="Resources\image12.jpg" />
+    <Content Include="Resources\image13.jpg" />
+    <Content Include="Resources\image14.jpg" />
+    <Content Include="Resources\image15.jpg" />
+    <Content Include="Resources\image16.jpg" />
+    <Content Include="Resources\image17.jpg" />
+    <Content Include="Resources\image18.jpg" />
+    <Content Include="Resources\image19.jpg" />
+    <Content Include="Resources\image2.jpg" />
+    <Content Include="Resources\image20.jpg" />
+    <Content Include="Resources\image21.jpg" />
+    <Content Include="Resources\image22.jpg" />
+    <Content Include="Resources\image23.jpg" />
+    <Content Include="Resources\image24.jpg" />
+    <Content Include="Resources\image25.jpg" />
+    <Content Include="Resources\image26.jpg" />
+    <Content Include="Resources\image3.jpg" />
+    <Content Include="Resources\image4.jpg" />
+    <Content Include="Resources\image5.jpg" />
+    <Content Include="Resources\image6.jpg" />
+    <Content Include="Resources\image7.jpg" />
+    <Content Include="Resources\image8.jpg" />
+    <Content Include="Resources\image9.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -249,7 +275,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
