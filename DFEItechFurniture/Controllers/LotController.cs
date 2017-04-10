@@ -21,7 +21,7 @@ namespace DFEItechFurniture.Controllers
         public ActionResult ListLots(int lotId=0, string lotName=null, int lotType=0, string lotImage=null, string LotDescript=null, Boolean exterior=false, Decimal price=0)
         {
             if (lotId != 0)                                     { return View(butler.GetLotsById(lotId)); }
-            else if (exterior != false && lotName != null)      { return View(butler.GetLotsByNameAndExterior(lotName, exterior)); }           
+            else if (exterior == true && lotName != null)       { return View(butler.GetLotsByNameAndExterior(lotName, exterior)); }           
             else if (lotName != null && lotType != 0)           { return View(butler.GetLotsByTypeAndName(lotType, lotName)); }
             else if (lotType != 0)                              { return View(butler.GetLotsByType(lotType)); }
             else if (lotName !=null)                            { return View(butler.GetLotsByName(lotName)); }
